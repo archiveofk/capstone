@@ -3,9 +3,9 @@ import { getInvoiceByInvoiceId, updateInvoicePayment } from '$lib/database/invoi
 import { getUserById, updateTotalMade } from '$lib/database/accounts';
 import bs58 from 'bs58';
 
-const HOUSE_WALLET = process.env.HOUSE_WALLET || import.meta.env.HOUSE_WALLET || 'CPFGknWp1zrhEEw5UMfsVcy1pUN97HPBCHvXU9RkqcrQ';
-const SOLANA_RPC_URL = process.env.SOLANA_RPC_URL || import.meta.env.SOLANA_RPC_URL || 'https://mainnet.helius-rpc.com/?api-key=caf35849-c4cf-427a-a38d-b3a054c6b8fe';
-const SOLANA_WS_URL = process.env.SOLANA_WS_URL || import.meta.env.SOLANA_WS_URL || 'wss://mainnet.helius-rpc.com/?api-key=caf35849-c4cf-427a-a38d-b3a054c6b8fe';
+const HOUSE_WALLET = process.env.HOUSE_WALLET || import.meta.env.HOUSE_WALLET || '';
+const SOLANA_RPC_URL = process.env.SOLANA_RPC_URL || import.meta.env.SOLANA_RPC_URL || 'https://mainnet.helius-rpc.com/?api-key=';
+const SOLANA_WS_URL = process.env.SOLANA_WS_URL || import.meta.env.SOLANA_WS_URL || 'wss://mainnet.helius-rpc.com/?api-key=';
 
 interface MonitoredInvoice {
     invoice_id: string;
@@ -295,3 +295,4 @@ export function stopMonitoringInvoice(invoiceId: string) {
 export function isMonitoringInvoice(invoiceId: string): boolean {
     return monitoredInvoices.has(invoiceId);
 }
+
